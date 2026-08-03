@@ -1,1 +1,13 @@
+Firewall rule: Block Kali → Metasploitable FTP — pfSense rule blocking 192.168.56.103 (Kali) from reaching 192.168.56.102:21 (Metasploitable FTP), shown alongside the anti-lockout rule and default LAN rules.
+Rule edit detail view — the same rule's configuration page (Action: Block, Interface: KALI, Protocol: TCP, Source/Destination fields).
+Firewall logs — deny hits (set 1) — status_logs_filter.php showing repeated "Default deny rule IPv4" entries as Kali's traffic to port 80/21 gets blocked, proving the rule is active.
+Firewall logs — deny hits (set 2) — additional log entries, including UDP/DHCP broadcast traffic and more blocked TCP attempts.
+Firewall logs — deny hits (set 3) — further confirmation across a longer time span.
+Reset States page — clearing pfSense's firewall state table after a rule change, a necessary step to make new rules take effect immediately.
+Ping/traceroute to 8.8.8.8 blocked — Kali unable to reach the internet (ping: connect: Network is unreachable / later 100% packet loss), demonstrating an outbound-block rule (Kali → Internet, ICMP) working as intended — this doubles as a "how I locked Kali into the isolated lab segment" screenshot.
+Firewall log — Block Kali outbound to internet (ICMP) — explicit log entries confirming the outbound block rule firing repeatedly.
+Firewall rule disabled — toggling the block rule off, setting up for the next phase (exploitation demo).
+Firewall syslog — traffic now passing — confirms that once the rule was disabled, Kali's traffic to Metasploitable/Windows 10 was allowed through.
 
+💡 This phase is genuinely one of the strongest parts of my project — I am not just building a lab, I am proving the firewall segmentation works with before/after evidence.
+"Validating Network Segmentation."
