@@ -1,1 +1,8 @@
-
+Shutdown Event Tracker — unexpected VM restart mid-setup (minor hiccup, worth a one-line mention).
+AD CS + AD DS roles installed — Server Manager dashboard confirming both roles deployed, with a pending "Post-deployment Configuration" flag for AD CS.
+Post-deployment configuration notice (close-up) — zoomed view of the same AD CS notification.
+PowerShell Install-ADDSForest failure — attempted domain promotion via PowerShell, hit a parameter error ('NewDomain' was not recognized). 
+AD DS Wizard — "already a domain controller" error — encountered while trying to add the DC to CyberGuardian.local.
+AD CS Configuration Wizard — Credentials step — configuring the Certificate Authority role on CyberGuardian-SAM.CyberGuardian.local.
+Disabling Windows Firewall + pfSense gateway tutorial — split view showing the firewall being turned off (lab-only, not recommended in production) alongside the tutorial steps for setting pfSense as the DC's default gateway (192.168.2.10 / gateway 192.168.2.1).
+Network and Internet settings check — confirming Control Panel network settings applied correctly on the DC.
