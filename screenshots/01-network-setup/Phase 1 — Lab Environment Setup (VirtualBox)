@@ -1,1 +1,7 @@
+VirtualBox Manager overview — shows your full VM inventory (Kali, WinServer2019, Windows 10, Metasploitable, pfSense, CyberOps Security Onion) with the Hard Disk Selector open, confirming all virtual disks are properly attached.
+Metasploitable2 file extraction — File Explorer showing the extracted .vmdk, .vmx, .nvram files after unzipping the Metasploitable2 archive, ready to import into VirtualBox.
+New VM Wizard (Windows 10/11 setup) — creating the victim VM, naming it and selecting the OS type/version.
+pfSense network adapter settings — Adapter 1 attached to NAT (so pfSense itself can reach the internet for updates via WAN).
+WinServer2019 network adapter settings — Adapter 1 attached to Bridged Adapter, showing how the Domain Controller was bridged onto the physical host's network initially before being moved fully into the isolated segment.
 
+💡 Caption idea: "Each VM was deliberately isolated using VirtualBox internal/host-only networking, with pfSense acting as the router/firewall between segments."
