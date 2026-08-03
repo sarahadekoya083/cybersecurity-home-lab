@@ -42,7 +42,43 @@ flowchart TB
 ```
 ---
 
-![Network Diagram](network-diagram.svg)
+```mermaid
+---
+title: Personal Cybersecurity Homelab — Network Topology
+---
+flowchart TB
+    INET(["🌐 Internet<br/>Host NAT"])
+
+    PF["🛡️ pfSense — Firewall / Router<br/>WAN (em0): NAT/DHCP<br/>LAN 'KALI' (em1): 192.168.56.101/24"]
+
+    subgraph LAN["Isolated Lab Segment — 192.168.56.0/24"]
+        direction LR
+        KALI["💀 Kali Linux<br/>Attacker<br/>192.168.56.103/24"]
+        WIN10["🖥️ Windows 10<br/>Victim<br/>192.168.56.21/24"]
+        META["🎯 Metasploitable2<br/>Vulnerable Target<br/>192.168.56.102/24"]
+    end
+
+    subgraph DOMAIN["Domain Infrastructure — 192.168.2.0/24"]
+        DC["🏢 WinServer2019<br/>CyberGuardian.local<br/>AD DS + AD CS<br/>192.168.2.10/24<br/>Gateway: 192.168.2.1 (pfSense)"]
+    end
+
+    INET <-->|WAN uplink| PF
+    PF --> KALI
+    PF --> WIN10
+    PF --> META
+    PF --> DC
+    KALI -.->|"🚫 FIREWALL RULE: BLOCK<br/>Kali → Metasploitable :21 (FTP demo)"| META
+
+    style PF fill:#1c2531,stroke:#3fb950,stroke-width:2.5px,color:#e6edf3
+    style KALI fill:#1c2531,stroke:#f0883e,stroke-width:2px,color:#e6edf3
+    style WIN10 fill:#1c2531,stroke:#58a6ff,stroke-width:2px,color:#e6edf3
+    style META fill:#1c2531,stroke:#d29922,stroke-width:2px,color:#e6edf3
+    style DC fill:#1c2531,stroke:#a371f7,stroke-width:2px,color:#e6edf3
+    style INET fill:#161b22,stroke:#39414c,stroke-width:2px,color:#e6edf3
+    style LAN fill:#0d1117,stroke:#30363d,stroke-width:1.5px,stroke-dasharray:6 4,color:#7d8590
+    style DOMAIN fill:#0d1117,stroke:#30363d,stroke-width:1.5px,stroke-dasharray:6 4,color:#7d8590
+    linkStyle 5 stroke:#f85149,stroke-width:1.5px
+```
 
 ---
 
