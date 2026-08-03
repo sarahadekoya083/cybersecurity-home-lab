@@ -1,1 +1,9 @@
-
+Initial ping test — 50% packet loss — ping 192.168.56.101 from the Windows Server showing intermittent "Destination host unreachable".
+pfSense Interface Assignments page — WAN (em0) and Kali/LAN (em1) mapped to their physical/virtual NICs, with a third available port (em2) unused.
+Kali ip a output — confirms Kali's eth0 IP (192.168.56.103/24) on the lab segment.
+Kali → pfSense ping test — successful ping to 192.168.56.101, 0% packet loss.
+Kali → Metasploitable ping test — successful ping to 192.168.56.102.
+Windows 10 → all hosts ping test — CMD output pinging .102, .103, .101 all successfully, confirming full L3 connectivity across the segment.
+Nmap host discovery (-sn) — sweep of 192.168.56.0/24 finding 4 hosts up (.100, .101, .102, .103).
+Nmap version scan on Metasploitable (-sV -A) — detailed scan revealing FTP (vsftpd 2.3.4), SSH, Telnet, SMTP — this is the scan that reveals the vulnerable backdoor you exploit later, so it's a great "recon" screenshot.
+Nmap scan on Windows 10 (-sV -Pn) — showing filtered ports 135/139/445 (SMB stack), OS fingerprinted as Windows.
