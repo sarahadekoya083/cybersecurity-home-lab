@@ -1,1 +1,4 @@
-
+pfSense console boot screen — shows the interface assignment: WAN (em0) → NAT/DHCP, KALI (em1/LAN) → static 192.168.56.101/24.
+IE Enhanced Security blocking pfSense GUI — "Can't reach this page" error when trying to access 192.168.56.101 from the Windows Server VM, caused by IE ESC. Good troubleshooting callout.
+DHCP Server configuration error — pfSense warning that "This system has no interfaces configured with a static IPv4 address," documenting a config step you had to fix before DHCP would serve clients.
+Domain-join tutorial troubleshooting overlay — instructions you followed (from the Cyberwox Academy guide) to point pfSense's DHCP DNS setting to the Domain Controller (192.168.2.10) and set the domain name (CYBERWOX.local) so client machines could resolve and join the domain.
